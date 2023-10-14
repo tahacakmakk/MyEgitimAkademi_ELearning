@@ -1,0 +1,27 @@
+﻿@model MyElearningProject.DAL.Entities.Carousel
+@{
+    ViewBag.Title = "UpdateCarousel";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card-block pt-5">
+    <form class="" method="post">
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.CarouselID)
+            <label>Ana Başlık</label>
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+            <br /> <br />
+            <label>Alt Başlık</label>
+            @Html.TextBoxFor(x => x.Title2, new { @class = "form-control" })
+            <br /> <br />
+            <label>Resim</label>
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+            <br /> <br />
+            <label>Açıklama</label>
+            @Html.TextAreaFor(x => x.Description, 3, 3, new { @class = "form-control" })
+            <br /> 
+        </div>
+        <button class="btn btn-outline-primary"> Başlığı Güncelle</button>
+    </form>
+</div>
+

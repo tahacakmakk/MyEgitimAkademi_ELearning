@@ -1,0 +1,54 @@
+﻿@using MyElearningProject.DAL.Entities
+@model List<Comment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block ">
+                <h4 class="card-title">Yorum Listesi</h4>
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Kurs Adı</th>
+                        <th>Öğrenci Adı</th>
+                        <th>Tarih</th>
+                        <th>Yorum </th>
+                        <th>Güncelle</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th>@count</th>
+                            <td>@item.Course.Title</td>
+                            <td>@item.Student.Name</td>
+                            <td>
+                                @item.CommentDate.ToString("dd MMMM HH:mm", new System.Globalization.CultureInfo("tr-TR"))
+                            </td>
+                            <td>@item.CommentText</td>
+                            <td>
+                                @if (item.CommentStatus)
+                                {
+                                    <a href="/Comment/ToggleCommentStatus/@item.CommentID" class="btn btn-outline-danger">
+                                        <i class="mdi mdi-close">Pasif Yap</i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="/Comment/ToggleCommentStatus/@item.CommentID" class="btn btn-outline-success">
+                                        <i class="mdi mdi-check"> Aktif Yap</i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

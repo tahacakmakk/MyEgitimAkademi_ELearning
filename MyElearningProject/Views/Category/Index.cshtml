@@ -1,0 +1,60 @@
+﻿@model List<MyElearningProject.DAL.Entities.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block ">
+                <h4 class="card-title">Kategori Listesi</h4>
+
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Kategori Ad</th>
+                        <th>Durum</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                    </tr>
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="5">Kategori bulunamadı.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CategoryID</td>
+                                <td>@item.CategoryName</td>
+                                <td>
+                                    @if (item.Status)
+                                    {
+                                        <a href="/Category/ToggleCategoryStatus/@item.CategoryID" class="btn btn-outline-danger">
+                                        <i class="mdi mdi-close">Pasif Yap</i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Category/ToggleCategoryStatus/@item.CategoryID" class="btn btn-outline-success">
+                                        <i class="mdi mdi-check"> Aktif Yap</i>
+                                        </a>
+                                    }
+
+                                </td>
+                                <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger"><i class="mdi mdi-delete-empty"></i> Sil</a></td>
+                                <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-outline-primary"><i class="mdi mdi-update"></i> Güncelle</a></td>
+                            </tr>
+                        }
+                    }
+                </table>
+
+                <a href="/Category/AddCategory/" class="btn btn-outline-success">Yeni Kategori Ekle <i class="mdi mdi-plus-outline"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+

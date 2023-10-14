@@ -1,0 +1,27 @@
+﻿@using MyElearningProject.DAL.Entities
+@model AboutUs
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card-block pt-5">
+    <h3 class="card-title">Hakkımızda</h3>
+    <hr />
+    <form class="" method="post">
+        @Html.HiddenFor(x => x.AboutUSID)
+        <div class="form-group">
+            <label>Başlık</label>
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Resim</label>
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Açıklama</label>
+            @Html.TextAreaFor(x => x.Description,5,4, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-outline-primary"> Güncelle</button>
+    </form>
+</div>

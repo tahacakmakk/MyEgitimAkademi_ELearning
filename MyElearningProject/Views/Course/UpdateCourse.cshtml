@@ -1,0 +1,40 @@
+﻿@model MyElearningProject.DAL.Entities.Course
+
+@{
+    ViewBag.Title = "UpdateCourse";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="card-block pt-5">
+    <h3 class="card-title">Kurs Güncelleme Sayfası</h3>
+    <form class="" method="post">
+        @Html.HiddenFor(x=>x.CourseID)
+        <div class="form-group">
+            <label>Kurs Adını Giriniz</label>
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Kurs Fiyatını Giriniz</label>
+            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Kurs Süresini Giriniz</label>
+            @Html.TextBoxFor(x => x.Duration, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Kurs Görsel Giriniz</label>
+            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Kurs Kategori Seçiniz</label>
+            @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Eğitmen Seçiniz </label>
+            @Html.DropDownListFor(x => x.InstructorID, (List<SelectListItem>)ViewBag.v2, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-outline-primary"> Güncelle</button>
+    </form>
+</div>
+
+
+

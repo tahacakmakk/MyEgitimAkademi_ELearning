@@ -1,0 +1,44 @@
+﻿@using MyElearningProject.DAL.Entities
+@model List<Carousel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block ">
+                <h4 class="card-title">Başlık Listesi</h4>
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Ana Başlık </th>
+                        <th>Alt Başlık</th>
+                        <th>Görsel</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                    </tr>
+                    @foreach (var item in Model)
+                        {
+                        count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.Title</td>
+                                <td>@item.Title2</td>
+                                <td><img src="@item.ImageUrl" style="max-width:150px;max-height:150px; border-radius:10px;" /></td>
+                                <td><a href="/Carousel/DeleteCarousel/@item.CarouselID" class="btn btn-outline-danger"><i class="mdi mdi-delete-empty"></i> Sil</a></td>
+                                <td><a href="/Carousel/UpdateCarousel/@item.CarouselID" class="btn btn-outline-primary"><i class="mdi mdi-update"></i> Güncelle</a></td>
+                            </tr>
+                        }
+                    
+                </table>
+                <a href="/Carousel/AddCarousel/" class="btn btn-outline-success">Yeni Başlık Ekle <i class="mdi mdi-plus-outline"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

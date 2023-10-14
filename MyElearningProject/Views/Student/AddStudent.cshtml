@@ -1,0 +1,31 @@
+﻿@model MyElearningProject.DAL.Entities.Student
+@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card-block">
+    <h4>Öğrenci Kaydı</h4>
+    <hr />
+
+    <form class="" method="post">
+        <div class="form-group">
+            <label> Adını Giriniz</label>
+            <input type="text" name="Name" class="form-control" required />
+            <br /> <br />
+            <label> Soyad Giriniz</label>
+            <input type="text" name="Surname" class="form-control" required />
+            <br /> <br />
+
+            <label> Öğrenci Mail Adresi</label>
+            <input type="email" name="Email" class="form-control" required />
+            <br /> <br />
+
+            <label> Öğrenci Şifre</label>
+            <input type="password" name="Password" class="form-control" required />
+            <br />
+        </div>
+        <button class="btn btn-outline-primary"> Öğrenciyi Kaydet</button>
+    </form>
+</div>
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+
+<!-- Carousel Start -->
+@Html.Action("Carousel", "Home")
+<!-- Carousel End -->
+<!-- Service Start -->
+@Html.Action("Service", "Home")
+
+<!-- Service End -->
+<!-- About Start -->
+@Html.Action("AboutUsPartial", "About")
+<!-- About End -->
+<!-- Categories Start -->
+@Html.Action("CategoriesPartial", "Home")
+
+<!-- Categories Start -->
+<!-- Courses Start -->
+@Html.Action("CoursesPartial", "Home")
+
+<!-- Courses End -->
+<!-- Team Start -->
+@Html.Action("TeamPartial","Home")
+
+<!-- Team End -->
+<!-- Testimonial Start -->
+@Html.Action("TestimonialPartial", "Home")
+
+<!-- Testimonial End -->

@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@Html.Action("HeadPartial", "UILayout")
+
+
+<body>
+    <!-- Spinner Start -->
+    @Html.Action("NavPartial", "UILayout")
+
+    <!-- Carousel Start -->
+
+    @RenderBody()
+    @Html.Action("FooterPartial", "UILayout")
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    @Html.Action("ScriptPartial", "UILayout")
+
+</body>
+
+</html>
+

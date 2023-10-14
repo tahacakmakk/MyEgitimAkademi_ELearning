@@ -1,0 +1,63 @@
+﻿@model List<MyElearningProject.DAL.Entities.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block ">
+                <h4 class="card-title">Kurs Listesi</h4>
+
+                <table class="table ">
+                    <tr>
+                        <th>#</th>
+                        <th>Kurs Adı</th>
+                        <th>Kategori</th>
+                        <th>Eğitmen</th>
+                        <th>Skor</th>
+                        <th>Sil </th>
+                        <th>Güncelle</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th>@count</th>
+                            <td>@item.Title</td>
+                            <td>@item.Category.CategoryName</td>
+                            <td>@item.Instructor.Name @item.Instructor.Surname</td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="openPopup('/CourseScor/Index/@item.CourseID', 800, 600)" class="btn btn-outline-info"><i class="mdi mdi-star-circle"></i>Skor Ver</a>
+                            </td>
+
+                            <td><a href="/Course/DeleteCourse/@item.CourseID" class="btn btn-outline-danger"><i class="mdi mdi-delete-empty"></i> Sil</a></td>
+                            <td><a href="/Course/UpdateCourse/@item.CourseID" class="btn btn-outline-primary"> <i class="mdi mdi-update"></i> Güncelle</a></td>
+                        </tr>
+                    }
+                </table>
+                <a href="/Course/CreateCourese/" class="btn btn-outline-success"> Yeni Kurs Ekle <i class="mdi mdi-plus-outline"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openPopup(url, width, height) {
+        var left = (window.innerWidth - width) / 2;
+        var top = (window.innerHeight - height) / 2;
+        var popup = window.open(url, "PopUp", "width=" + width + ", height=" + height + ", left=" + left + ", top=" + top);
+
+        // Post işlemi yapıldığında pencereyi kapat
+        if (popup) {
+            popup.onbeforeunload = function () {
+                if (popup && !popup.closed) {
+                    popup.close();
+                }
+            };
+        }
+    }
+</script>

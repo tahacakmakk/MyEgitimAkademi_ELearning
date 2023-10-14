@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+@Html.Action("HeadPartial", "CourseUI")
+
+<!-- Categories Start -->
+@Html.Action("CategoriesPartial","Home")
+<!-- Categories Start -->
+
+@Html.Action("AllCoursePartial","CourseUI")
+
+@Html.Action("TestimonialPartial","Home")

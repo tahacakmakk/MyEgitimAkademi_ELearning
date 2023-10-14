@@ -1,0 +1,47 @@
+﻿@using MyElearningProject.DAL.Entities
+@model List<Testimonial>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<div class="row pt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block ">
+                <h4 class="card-title">Referans Listesi</h4>
+
+                <table class="table ">
+                    <tr>
+                        <th>#</th>
+                        <th>Resim</th>
+                        <th>Ad Soyad</th>
+                        <th>Ünvan</th>
+                        <th>Yorum</th>
+                        <th>Sil </th>
+                        <th>Güncelle</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th>@count</th>
+                            <td><img src="@item.ImageUrl" style="max-height:150px; max-width:150px; border-radius:50%;" /></td>
+                            <td>@item.NameSurname</td>
+                            <td>@item.Title</td>
+                            <td>
+                                @item.Comment
+                            </td>
+                            <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-outline-danger"><i class="mdi mdi-delete-empty"></i> Sil</a></td>
+                            <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-outline-primary"> <i class="mdi mdi-update"></i> Güncelle</a></td>
+                        </tr>
+                    }
+                </table>
+                <a href="/Testimonial/AddTestimonial/" class="btn btn-outline-success"> Yeni Referans Ekle <i class="mdi mdi-plus-outline"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+

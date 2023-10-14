@@ -1,0 +1,26 @@
+﻿@model MyElearningProject.DAL.Entities.Instructor
+@{
+    ViewBag.Title = "UpdateInstructor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card-block  pt-5">
+    <h4> Eğitmen Kaydı Güncelle</h4>
+    <br />
+    <form class="" method="post">
+        <div class="form-group">
+            <input type="hidden"name="InstructorID"  value="@Model.InstructorID"/>
+            <label>Eğitmenin Adını Giriniz</label>
+            <input type="text" name="Name" value="@Model.Name" class="form-control" />
+            <br /> <br />
+            <label>Eğitmenin Soyadını Giriniz</label>
+            <input type="text" name="Surname"value="@Model.Surname" class="form-control" />
+            <br /> <br />
+            <label>Eğitmenin Resm Url Giriniz</label>
+            <input type="text" name="ImageUrl"value="@Model.ImageUrl" class="form-control" />
+            <br />
+        </div>
+        <button class="btn btn-outline-primary">Eğitmeni Güncelle</button>
+    </form>
+</div>
+
